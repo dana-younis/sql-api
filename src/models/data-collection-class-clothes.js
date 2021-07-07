@@ -1,5 +1,6 @@
 'use strict';
 const pool = require('./pool');
+
 class InterfaceClothes {
 read(id) {
     if (id) {
