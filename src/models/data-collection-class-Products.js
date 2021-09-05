@@ -9,15 +9,15 @@ class InterfaceProducts {
   }
 
   create(obj) {
-    const sql = 'INSERT INTO Products (name,price,catugary,image,description) VALUES ($1,$2,$3,$4,$5) RETURNING *;';
+    const sql = 'INSERT INTO Products (name,price,catugary) VALUES ($1,$2,$3) RETURNING *;';
    
-      const safeValues = [obj.name, obj.price,obj.catugary,obj.image,obj.description];
+      const safeValues = [obj.name, obj.price,obj.catugary];
     return pool.query(sql, safeValues);
   }
 
   update(id, obj) {
-    const sql = 'UPDATE Products SET name=$1,price=$2,catugary=$3 ,image =$4,description=$5 WHERE id=$6 RETURNING *;';
-    const safeValues =[obj.name, obj.price,obj.catugary,obj.image,obj.description];
+    const sql = 'UPDATE Products SET name=$1,price=$2,catugary=$3  WHERE id=$6 RETURNING *;';
+    const safeValues =[obj.name, obj.price,obj.catugary];
     return pool.query(sql, safeValues);
   }
 

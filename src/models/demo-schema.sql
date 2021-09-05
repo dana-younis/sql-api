@@ -1,10 +1,8 @@
-DROP TABLE IF EXISTS Products;
-CREATE TABLE Products(
+DROP TABLE IF EXISTS food;
+CREATE TABLE food(
   id SERIAL PRIMARY KEY,
   name varchar(255),
   price INTEGER,
-  image varchar(255),
-  description varchar(255),
   catugary varchar(255));
 
 
@@ -13,4 +11,6 @@ CREATE TABLE clothes(
   id SERIAL PRIMARY KEY,
   name varchar(255),
   price INTEGER,
+  image varchar(255),
+  description varchar(255),
   catugary varchar(255));
