@@ -16,7 +16,7 @@ class InterfaceProducts {
   }
 
   update(id, obj) {
-    const sql = 'UPDATE Products SET name=$1,price=$2,catugary=$3 ,image =$4, description=$5 WHERE id=$6 RETURNING *;';
+    const sql = 'UPDATE Products SET name=$1,price=$2,catugary=$3 ,image =$4,description=$5 WHERE id=$6 RETURNING *;';
     const safeValues =[obj.name, obj.price,obj.catugary,obj.image,obj.description];
     return pool.query(sql, safeValues);
   }
