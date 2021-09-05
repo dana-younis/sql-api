@@ -5,7 +5,7 @@ const router = express.Router();
 const interFace = require('../models/data-collection-class-Products');
 // const foodModel = require('../models/demo-schema.sql');
 
-const foodInstance = new interFace();
+const InterfaceProducts = new interFace();
 
 router.get('/', getFood);
 router.get('/:id', getFood);
@@ -16,7 +16,7 @@ router.delete('/:id', deleteFood);
 async function getFood(req, res, next) {
   try {
     let id = req.params.id;
-    let items = await foodInstance.read(id);
+    let items = await InterfaceProducts.read(id);
     res.status(200).json(items.rows);
   } catch (error) {
     next({
@@ -29,7 +29,7 @@ async function createFood(req, res, next) {
   
   try {
     let obj = req.body;
-     let newItem = await foodInstance.create(obj);
+     let newItem = await InterfaceProducts.create(obj);
      res.status(200).json(newItem.rows[0]);
     console.log(obj)
   } catch (error) {
@@ -43,7 +43,7 @@ async function updateFood(req, res, next) {
   try {
     let id = req.params.id;
     const obj = req.body;
-    let updatedFood = await foodInstance.update(id, obj);
+    let updatedFood = await InterfaceProducts.update(id, obj);
     res.status(200).json(updatedFood.rows[0]);
   } catch (error) {
     next({
@@ -55,7 +55,7 @@ async function updateFood(req, res, next) {
 async function deleteFood(req, res, next) {
   try {
     let id = req.params.id;
-    let deleted = await foodInstance.delete(id);
+    let deleted = await InterfaceProducts.delete(id);
     let msg = deleted ? 'Item is deleted' : 'Item was not Found';
     let statusCode = deleted ? 202 : 204;
     res.status(statusCode).send()
