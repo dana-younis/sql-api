@@ -12,5 +12,7 @@ CREATE TABLE clothes(
   id SERIAL PRIMARY KEY,
   name varchar(255),
   price INTEGER,
+  image varchar(255),
+  description varchar(255),
   catugary varchar(255));
   
