@@ -18,21 +18,21 @@ describe('Server Test Group', ()=>{
     expect(response.status).toEqual(404);
   });
 
-  it('Handles creating new food', async () => {
-    let foodObj = { name: 'test', price: 50 ,catugary:'redT'};
+  it('Handles creating new Products', async () => {
+    let ProductsObj = { name: 'test', price: 50 ,catugary:'redT'};
 
-    const response = await request.post('/api/v1/food').send(foodObj);
+    const response = await request.post('/api/v1/Products').send(ProductsObj);
 
     id = response.body.id;
 
-    expect(response.body.name).toBe(foodObj.name);
-    expect(response.body.price).toBe(foodObj.price);
+    expect(response.body.name).toBe(ProductsObj.name);
+    expect(response.body.price).toBe(ProductsObj.price);
     expect(response.status).toEqual(200);
   });
 
-  it('Handles reading foods', async () => {
+  it('Handles reading Productss', async () => {
 
-    const response = await request.get('/api/v1/food/'+id);
+    const response = await request.get('/api/v1/Products/'+id);
 
     expect(response.body[0].name).toBeTruthy();
     expect(response.body[0].price).toBeTruthy();
@@ -47,14 +47,14 @@ describe('Server Test Group', ()=>{
       price:5
     }
 
-    const response = await request.put("/api/v1/food/"+id).send(newObj);
+    const response = await request.put("/api/v1/Products/"+id).send(newObj);
     expect(response.status).toEqual(200);
     expect(response.body.name).toBe('potato');
   });
 
   it('Handles deleting a record', async ()=>{
 
-    const response = await request.delete("/api/v1/food/"+id);
+    const response = await request.delete("/api/v1/Products/"+id);
     expect(response.status).toEqual(202);
     expect(response.body.name).toBeUndefined();
   });

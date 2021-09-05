@@ -5,13 +5,13 @@ class InterfaceProducts {
     if (id) {
       return pool.query('SELECT * FROM Products WHERE id=$1;', [id]);
     }
-    return pool.query('SELECT * FROM food;');
+    return pool.query('SELECT * FROM Products;');
   }
 
   create(obj) {
     const sql = 'INSERT INTO Products (name,price,catugary,image, description) VALUES ($1,$2,$3,$4,$5) RETURNING *;';
    
-      const safeValues = [obj.name, obj.price,obj.catugary,obj.image,obj. description];
+      const safeValues = [obj.name, obj.price,obj.catugary,obj.image,obj.description];
     return pool.query(sql, safeValues);
   }
 

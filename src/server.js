@@ -8,12 +8,12 @@ app.use(cors());
 const notFoundHandler = require('../src/error-handlers/404');
 const errorHandler = require('../src/error-handlers/500');
 
-const foodRoute = require('./routes/Products');
+const ProductsRoute = require('./routes/Products');
 const clothesRoute = require('./routes/clothes.js');
 app.get('/', (req, res) => {
   res.json('welcome');
 });
-app.use('/api/v1/Products', foodRoute);
+app.use('/api/v1/Products', ProductsRoute);
 app.use('/api/v1/clothes', clothesRoute);
 
 app.use(errorHandler);

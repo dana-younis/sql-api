@@ -3,17 +3,17 @@
 const express = require('express');
 const router = express.Router();
 const interFace = require('../models/data-collection-class-Products');
-// const foodModel = require('../models/demo-schema.sql');
+// const ProductsModel = require('../models/demo-schema.sql');
 
 const InterfaceProducts = new interFace();
 
-router.get('/', getFood);
-router.get('/:id', getFood);
-router.post('/', createFood);
-router.put('/:id', updateFood);
-router.delete('/:id', deleteFood);
+router.get('/', getProducts);
+router.get('/:id', getProducts);
+router.post('/', createProducts);
+router.put('/:id', updateProducts);
+router.delete('/:id', deleteProducts);
 
-async function getFood(req, res, next) {
+async function getProducts(req, res, next) {
   try {
     let id = req.params.id;
     let items = await InterfaceProducts.read(id);
@@ -25,7 +25,7 @@ async function getFood(req, res, next) {
   }
 }
 
-async function createFood(req, res, next) {
+async function createProducts(req, res, next) {
   
   try {
     let obj = req.body;
@@ -39,12 +39,12 @@ async function createFood(req, res, next) {
   }
 }
 
-async function updateFood(req, res, next) {
+async function updateProducts(req, res, next) {
   try {
     let id = req.params.id;
     const obj = req.body;
-    let updatedFood = await InterfaceProducts.update(id, obj);
-    res.status(200).json(updatedFood.rows[0]);
+    let updatedProducts = await InterfaceProducts.update(id, obj);
+    res.status(200).json(updatedProducts.rows[0]);
   } catch (error) {
     next({
       error,
@@ -52,7 +52,7 @@ async function updateFood(req, res, next) {
   }
 }
 
-async function deleteFood(req, res, next) {
+async function deleteProducts(req, res, next) {
   try {
     let id = req.params.id;
     let deleted = await InterfaceProducts.delete(id);

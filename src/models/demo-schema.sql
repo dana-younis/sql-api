@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS products;
-CREATE TABLE products(
+DROP TABLE IF EXISTS Products;
+CREATE TABLE Products(
   id SERIAL PRIMARY KEY,
   name varchar(255),
   price INTEGER,
