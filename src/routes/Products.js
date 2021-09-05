@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const interFace = require('../models/data-collection-class-food');
+const interFace = require('../models/data-collection-class-Products');
 // const foodModel = require('../models/demo-schema.sql');
 
 const foodInstance = new interFace();
