@@ -10,8 +10,8 @@ read(id) {
   }
 
 create(obj) {
-    const sql = 'INSERT INTO clothes (name,price,catugary,image,description) VALUES ($1,$2,$3,$4,$5) RETURNING *;';
-    const safeValues = [obj.name, obj.price,obj.catugary,obj.image,obj.description];
+    const sql = 'INSERT INTO clothes (name,price,catugary) VALUES ($1,$2,$3) RETURNING *;';
+    const safeValues = [obj.name, obj.price,obj.catugary];
     return pool.query(sql, safeValues);
   }
 
