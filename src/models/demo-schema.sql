@@ -4,8 +4,8 @@ CREATE TABLE Products(
   name varchar(255),
   price INTEGER,
   catugary varchar(255)),
- image varchar(255)),
-  description varchar(255));
+ image varchar(2000)),
+  description varchar(1000));
 
 DROP TABLE IF EXISTS clothes;
 CREATE TABLE clothes(
