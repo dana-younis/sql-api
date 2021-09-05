@@ -13,3 +13,5 @@ CREATE TABLE clothes(
   name varchar(255),
   price INTEGER,
   catugary varchar(255));
+   image varchar(255),
+  description varchar(255));
